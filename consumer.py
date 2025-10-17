@@ -1,7 +1,7 @@
 from kafka import KafkaConsumer
 import json
 
-# Подключение к Kafka и подписка на топик incoming_messages
+
 consumer = KafkaConsumer(
     'topic_in',
     bootstrap_servers='localhost:9092',
@@ -11,6 +11,7 @@ consumer = KafkaConsumer(
     value_deserializer=lambda v: json.loads(v.decode('utf-8'))
 )
 
-print("📥 Ожидание сообщений из incoming_messages...")
+print("Ожидание сообщений из incoming_messages")
 for message in consumer:
-    print(f"✅ Получено сообщение: {message.value}")
+    print(f"Получено сообщение: {message.value}")
+
