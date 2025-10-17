@@ -3,13 +3,13 @@ import json
 import time
 import random
 
-# Подключение к локальной Kafka
+
 producer = KafkaProducer(
     bootstrap_servers='localhost:9092',
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
-# Отправляем тестовые сообщения
+
 for i in range(5):
     message = {
         "id": i,
@@ -22,4 +22,5 @@ for i in range(5):
 
 producer.flush()
 producer.close()
-print("✅ Все сообщения отправлены!")
+print("Все сообщения отправлены!")
+
